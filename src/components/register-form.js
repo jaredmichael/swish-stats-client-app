@@ -9,75 +9,105 @@ const matchesPassword = matches('password');
 
 export class RegisterForm extends React.Component {
     
+    onSubmit(values) {
+        const {username, password, firstName, lastName, jerseyNum, age, height, position} = values;
+        const user = {username, password, firstName, lastName, jerseyNum, age, height, position};
+        return this.props
+            .dispatch(registerUser(user))
+            .then(() => this.props.dispatch(login(username, password)));
+    }
     
+
     render() {
         return (
-            <form className="register-form">
+            <form 
+                className="register-form"
+                onSubmit={this.props.handleSubmit(values =>
+                    this.onSubmit(values)
+                )}>
                 <label htmlFor="firstName">First Name</label>
-                <input 
+                <Field 
+                    component={Input}
                     type="text" 
                     name="firstName"
                     id="firstName"
-                    required
+                    validate={[required, nonEmpty,isTrimmed]}
                 />
                 <label htmlFor="lastName">Last Name</label>
-                <input 
+                <Field
+                    component={Input}
                     type="text" 
                     name="lastName"
                     id="lastName"
-                    required
+                    validate={[required, nonEmpty,isTrimmed]}
                 />                
                 <label htmlFor="jerseyNum">Jersey Number</label>
-                <input 
+                <Field
+                    component={Input}
                     type="number" 
                     name="jerseyNum"
                     id="jerseyNum"
-                    required
+                    validate={[required, nonEmpty,isTrimmed]}
                 />
                 <label htmlFor="age">Age</label>
-                <input 
+                <Field
+                    component={Input} 
                     type="number" 
                     name="age"
                     id="age"
-                    required
+                    validate={[required, nonEmpty,isTrimmed]}
                 />
                 <label htmlFor="height">Height</label>
-                <input 
+                <Field
+                    component={Input} 
                     type="text" 
                     name="height"
                     id="height"
-                    required
+                    validate={[required, nonEmpty,isTrimmed]}
                 />
                 <label htmlFor="position">Position</label>
-                <input 
+                <Field
+                    component={Input} 
                     type="text" 
                     name="position"
                     id="position"
-                    required
+                    validate={[required, nonEmpty,isTrimmed]}
                 />
                 <label htmlFor="username">Username</label>
-                <input 
+                <Field
+                    component={Input}
                     type="text" 
                     name="username"
                     id="username"
-                    required
+                    validate={[required, nonEmpty,isTrimmed]}
                 />
                 <label htmlFor="password">Password</label>
-                <input 
+                <Field 
+                    component={Input}
                     type="password" 
                     name="password"
                     id="password"
-                    required
+                    validate={[required, nonEmpty,isTrimmed]}
                 />
                 <label htmlFor="passwordConfirm">Confirm Password</label>
-                <input 
+                <Field
+                    component={Input}
                     type="password" 
                     name="password"
                     id="password"
-                    required
+                    validate={[required, nonEmpty,isTrimmed]}
                 />
-                <button type="submit-register">Register</button>
+                <button type="submit-register"
+                    disabled={this.props.pristine || this.props.submitting}>
+                    Register
+                </button>
             </form>
         );
     }
 }
+
+export default reduxForm({
+    form: 'register',
+    onSubmitFail: (errors, dispatch) =>
+        dispatch(focus('register', Object.keys(errors)[0]))
+})(RegisterForm);
