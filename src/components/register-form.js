@@ -87,7 +87,7 @@ export class RegisterForm extends React.Component {
                     type="password" 
                     name="password"
                     id="password"
-                    validate={[required, nonEmpty,isTrimmed]}
+                    validate={[required, passwordLength, isTrimmed]}
                 />
                 <label htmlFor="passwordConfirm">Confirm Password</label>
                 <Field
@@ -95,7 +95,7 @@ export class RegisterForm extends React.Component {
                     type="password" 
                     name="password"
                     id="password"
-                    validate={[required, nonEmpty,isTrimmed]}
+                    validate={[required, nonEmpty, matchesPassword]}
                 />
                 <button type="submit-register"
                     disabled={this.props.pristine || this.props.submitting}>

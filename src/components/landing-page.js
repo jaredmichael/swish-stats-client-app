@@ -1,11 +1,15 @@
 import React from 'react';
-
+import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 import NavBar from './nav-bar.js';
 
-export default class LandingPage extends React.Component {
+export function LandingPage(props) {
+    //if logged in redirect to player-profile
+    if (props.loggedIn) {
+        return <Redirect to="/player-profile" />
+    }
     
-    render() {
-        return(
+    return(
         <div className="landing-page">
             <NavBar />
             <main role="main">
@@ -21,5 +25,11 @@ export default class LandingPage extends React.Component {
             </main>
         </div>
         );
-    }
 }
+
+
+const mapStateToProps = state => ({
+    loggedIn: state.auth.currentUser !== null
+});
+
+export default connect(mapStateToProps)(LandingPage);

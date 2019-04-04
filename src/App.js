@@ -1,12 +1,14 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import React from 'react';
+import {withRouter} from 'react-router';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import LandingPage from './components/landing-page';
 import LoginForm from './components/login-form';
 import RegisterForm from './components/register-form';
 import PlayerProfile from './components/player-profile';
 import StatSheet from './components/stat-sheet';
-import {refreshAuthToken} from '../actions.auth';
+import {refreshAuthToken} from './actions/auth';
+import {connect} from 'react-redux';
 
 export class App extends React.Component {
   componentDidUpdate(prevProps) {

@@ -14,12 +14,12 @@ export class CareerAvg extends React.Component {
                 <div className="col-4">                
                     <div className="career-card">
                         <div className="averages-row">
-                            <p className="career-avg-header">Career Averages</p>
-                            <p className="ppg">PPG</p>
-                            <p className="ast">AST</p>
-                            <p className="reb">REB</p>
-                            <p className="stl">STL</p>
-                            <p className="fg">FG%</p>
+                            <h1 className="career-avg-header">Career Averages</h1>
+                            <div id="ppg" name="ppg" className="ppg">PPG: {this.props.ppg}</div>
+                            <div id="ast" name="ast" className="ast">AST: {this.props.ast}</div>
+                            <div id="reb" name="reb"className="reb">REB: {this.props.reb}</div>
+                            <div id="stl" name="stl"className="stl">STL: {this.props.stl}</div>
+                            <div id="fg" name="fg"className="fg">FG%: {this.props.fg}</div>
                         </div>
                     </div>
                 </div>
@@ -29,12 +29,7 @@ export class CareerAvg extends React.Component {
 }
 
 const mapStateToProps = state => {
-    const {currentUser} = state.auth;
-    return {
-        username: state.auth.currentUser.username,
-        name: `${currentUser.firstName} ${currentUser.lastName}`,
-        protectedData: state.protectedData.data
-    };
+    
 };
 
 export default requiresLogin()(connect(mapStateToProps)(CareerAvg));
