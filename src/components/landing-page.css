@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+}
+
+main {
+    display: block;
+}
+  
+main .row {
+    margin-bottom: 60px;
+}
+
+.material-icons { 
+  color: darkslateblue; 
+  font-size: 180px;
+  margin-top: 10px;
+}
+
+h3.landing-page {
+    font-size: 30px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: darkslateblue;
+    margin-bottom: 40px;
+}
+
+.info-card {
+    border: 4px solid darkslateblue;
+    background-color: white;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 220px;
+}
+
+.card-label {
+    background-color: rgb(243, 160, 52);
+    border-top: 4px solid darkslateblue;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+p {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: darkslateblue;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+ul.app-info {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(238, 201, 120);
+    width: 100%;
+}
+
+li.app-features {
+    display: inline;
+    font-size: 20px;
+}
+
+.row {
+    max-width: 1000px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+  }
+  
+  /* Clearfix */
+  .row::before,
+  .row::after {
+    display: table;
+    content: '';
+  }
+  
+  .row::after {
+    clear: both;
+  }
+  
+  .col-3, .col-4, .col-6, .col-12 {
+    float: left;
+  
+    /* Gutters:
+     * Each column is padded by half-a-gutter on each side,
+     *
+     * Half a gutter is 10px, 10/960 (context) = 1.041666%
+     *
+     */
+    padding-left: 1.04166666%;
+    padding-right: 1.04166666%;
+  }
+  
+  /* Mobile defaults */
+  .col-3, .col-4, .col-6, .col-12 {
+    width: 100%;
+  }
+
+  /* Non-mobile, grid */
+  @media only screen and (min-width: 640px) {
+    /* 3 columns, 3/12 in % */
+    .col-3 {
+      width: 25%;
+    }
+  
+    /* 4 columns */
+    .col-4 {
+      width: 33.33%;
+    }
+  
+    /* 6 columns */
+    .col-6 {
+      width: 50%;
+    }
+  
+    /* 12 columns */
+    .col-12 {
+      width: 100%;
+    }
+  }

@@ -1,48 +1,72 @@
 import React from 'react';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { Link, Redirect, withRouter } from 'react-router-dom';
 import {connect} from 'react-redux';
+
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
+import './nav-bar.css';
 
 export class NavBar extends React.Component {
     logOut() {
         this.props.dispatch(clearAuth());
         clearAuthToken();
+        return (<Redirect to="/" />);
     }
 
     render() {
-        //Only render log-out if we are logged in 
+        //Only render log-out/new stat sheet if we are logged in 
         let logOutButton;
+        let newStatSheet;
+        let profile;
         if (this.props.loggedIn) {
             logOutButton = (
-                <button onClick={() => this.logOut()}>Log Out</button>
+                <h3>
+                    <Link className="nav" onClick={() => this.logOut()} to="/">LOG OUT</Link>
+                </h3>
             );
+            newStatSheet = (
+                <h3>
+                    <Link to="/stats-card" className="nav">+ STAT SHEET</Link> 
+                </h3>
+            );
+            profile = (
+                <h3>
+                    <Link to="/player-profile" className="nav">PROFILE</Link>
+                </h3>
+            );
+
         } 
         //Only render login/register if we are logged out
         let login;
         let register;
         if (!this.props.loggedIn) {
             login = (
-                <button><Link to="./login-form">Login</Link></button>
+                <h3>
+                    <Link to="/login-form" className="nav">LOGIN</Link>
+                </h3>
             );
             register = (
-                <button><Link to='./register-form'>Register</Link></button>
+                <h3>
+                    <Link to='/registration-page' className="nav">REGISTER</Link>
+                </h3>
             );
         }
         
         return (
-            <Router>
+            
             <div className="nav-bar">
                 <header>
-                    <h1><Link to="/">Swish Stats</Link></h1>
-                    <ul>
-                        <li>{login}</li>
-                        <li>{register}</li>
-                        <li>{logOutButton}</li>
+                    <h1 className="header"><Link to="/" className="header">SWISH STATS</Link></h1>
+                    <ul className="top-nav">
+                        <li className="nav-bar">{login}</li>
+                        <li className="nav-bar">{register}</li>
+                        <li className="nav-bar">{profile}</li>
+                        <li className="nav-bar">{newStatSheet}</li>
+                        <li className="nav-bar">{logOutButton}</li>
                     </ul>
                 </header>            
             </div>
-            </Router>
+            
         );
     }
 }
@@ -51,4 +75,10 @@ const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null
 });
 
-export default connect(mapStateToProps)(NavBar);
+export default withRouter(connect(mapStateToProps,
+    null,
+    null,
+    {
+        pure: false
+    }
+    )(NavBar));

@@ -4,110 +4,144 @@ import {registerUser} from '../actions/users';
 import {login} from '../actions/auth';
 import Input from './input';
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
+import SelectList from 'react-widgets/lib/SelectList';
+import 'react-widgets/dist/css/react-widgets.css';
+import './register-form.css';
+
+
 const passwordLength = length({min: 10, max: 72});
 const matchesPassword = matches('password');
+const ageMinMax = length({min: 1, max: 99});
 
 export class RegisterForm extends React.Component {
     
     onSubmit(values) {
+        console.log(values);
+        values.jerseyNum = parseInt(values.jerseyNum);
+        values.age = parseInt(values.age);
         const {username, password, firstName, lastName, jerseyNum, age, height, position} = values;
         const user = {username, password, firstName, lastName, jerseyNum, age, height, position};
-        return this.props
-            .dispatch(registerUser(user))
+        return this.props.dispatch(registerUser(user))
             .then(() => this.props.dispatch(login(username, password)));
     }
     
 
     render() {
+        const renderSelectList = ({ input, data }) =>
+            <SelectList {...input}
+            onBlur={() => input.onBlur()}
+            data={data} />
         return (
-            <form 
-                className="register-form"
-                onSubmit={this.props.handleSubmit(values =>
-                    this.onSubmit(values)
-                )}>
-                <label htmlFor="firstName">First Name</label>
-                <Field 
-                    component={Input}
-                    type="text" 
-                    name="firstName"
-                    id="firstName"
-                    validate={[required, nonEmpty,isTrimmed]}
-                />
-                <label htmlFor="lastName">Last Name</label>
-                <Field
-                    component={Input}
-                    type="text" 
-                    name="lastName"
-                    id="lastName"
-                    validate={[required, nonEmpty,isTrimmed]}
-                />                
-                <label htmlFor="jerseyNum">Jersey Number</label>
-                <Field
-                    component={Input}
-                    type="number" 
-                    name="jerseyNum"
-                    id="jerseyNum"
-                    validate={[required, nonEmpty,isTrimmed]}
-                />
-                <label htmlFor="age">Age</label>
-                <Field
-                    component={Input} 
-                    type="number" 
-                    name="age"
-                    id="age"
-                    validate={[required, nonEmpty,isTrimmed]}
-                />
-                <label htmlFor="height">Height</label>
-                <Field
-                    component={Input} 
-                    type="text" 
-                    name="height"
-                    id="height"
-                    validate={[required, nonEmpty,isTrimmed]}
-                />
-                <label htmlFor="position">Position</label>
-                <Field
-                    component={Input} 
-                    type="text" 
-                    name="position"
-                    id="position"
-                    validate={[required, nonEmpty,isTrimmed]}
-                />
-                <label htmlFor="username">Username</label>
-                <Field
-                    component={Input}
-                    type="text" 
-                    name="username"
-                    id="username"
-                    validate={[required, nonEmpty,isTrimmed]}
-                />
-                <label htmlFor="password">Password</label>
-                <Field 
-                    component={Input}
-                    type="password" 
-                    name="password"
-                    id="password"
-                    validate={[required, passwordLength, isTrimmed]}
-                />
-                <label htmlFor="passwordConfirm">Confirm Password</label>
-                <Field
-                    component={Input}
-                    type="password" 
-                    name="password"
-                    id="password"
-                    validate={[required, nonEmpty, matchesPassword]}
-                />
-                <button type="submit-register"
-                    disabled={this.props.pristine || this.props.submitting}>
-                    Register
-                </button>
-            </form>
+            <div className="register-card">
+                <main role="main">
+                    <h2>REGISTER PLAYER</h2>
+                    <form 
+                        className="register-form"
+                        onSubmit={this.props.handleSubmit(values =>
+                            this.onSubmit(values)
+                        )}>
+                        <div id="register-info" className="row">
+                            <div className="col-6">
+                                <label htmlFor="firstName">First Name</label>
+                                <Field 
+                                    component={Input}
+                                    type="text" 
+                                    name="firstName"
+                                    id="firstName"
+                                    validate={[required, nonEmpty]}
+                                />
+                                              
+                                <label htmlFor="jerseyNum">Jersey Number</label>
+                                <Field
+                                    component={Input}
+                                    type="text" 
+                                    name="jerseyNum"
+                                    id="jerseyNum"
+                                    defaultValue={24}
+                                    validate={[required, nonEmpty]}
+                                />
+                                <label htmlFor="age">Age</label>
+                                <Field
+                                    component={Input} 
+                                    type="text" 
+                                    name="age"
+                                    id="age"
+                                    defaultValue="16"
+                                    validate={[required, ageMinMax, nonEmpty]}
+                                />
+                                <label htmlFor="height">Height</label>
+                                <Field
+                                    component={Input} 
+                                    type="text" 
+                                    name="height"
+                                    id="height"
+                                    defaultValue={["6'1"]}
+                                    validate={[required, nonEmpty]}
+                                />
+                                
+                            </div>
+
+                            <div className="col-6">
+                                <label htmlFor="lastName">Last Name</label>
+                                <Field
+                                    component={Input}
+                                    type="text" 
+                                    name="lastName"
+                                    id="lastName"
+                                    validate={[required, nonEmpty]}
+                                />  
+
+                                <label id="pos" htmlFor="position">Position</label>
+                                <Field
+                                    component={renderSelectList} 
+                                    name="position"
+                                    id="position"
+                                    data={[ "Guard", "Forward", "Center" ]}
+                                    validate={[required]}
+                                />
+                            </div>
+                        </div>
+                        
+                            <label htmlFor="username">Username</label>
+                            <Field
+                                component={Input}
+                                type="text" 
+                                name="username"
+                                id="username"
+                                validate={[required, nonEmpty, isTrimmed]}
+                            />
+                            <label htmlFor="password">Password</label>
+                            <Field 
+                                component={Input}
+                                type="password" 
+                                name="password"
+                                id="password"
+                                validate={[required, passwordLength, isTrimmed]}
+                            />
+                            <label htmlFor="passwordConfirm">Confirm Password</label>
+                            <Field
+                                component={Input}
+                                type="password" 
+                                name="passwordConfirm"
+                                id="passwordConfirm"
+                                validate={[required, nonEmpty, matchesPassword]}
+                            />
+                            <button type="submit"
+                                disabled={this.props.pristine || this.props.submitting}>
+                                REGISTER
+                            </button>                  
+                    </form>
+                </main>
+            </div>
         );
     }
-}
+}  
 
 export default reduxForm({
     form: 'register',
-    onSubmitFail: (errors, dispatch) =>
+    onSubmitFail: (errors, dispatch) => {
+        console.log(errors)
         dispatch(focus('register', Object.keys(errors)[0]))
+    }
+
 })(RegisterForm);

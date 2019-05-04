@@ -1,7 +1,8 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
-import {fetchProtectedData} from '../actions/protected-data';
+import { fetchProtectedData } from '../actions/protected-data';
+import './career-avg.css';
 
 export class CareerAvg extends React.Component {
     componentDidMount() {
@@ -9,27 +10,19 @@ export class CareerAvg extends React.Component {
     }
 
     render() {
-        return(
-            <div className="career-row">
-                <div className="col-4">                
-                    <div className="career-card">
-                        <div className="averages-row">
-                            <h1 className="career-avg-header">Career Averages</h1>
-                            <div id="ppg" name="ppg" className="ppg">PPG: {this.props.ppg}</div>
-                            <div id="ast" name="ast" className="ast">AST: {this.props.ast}</div>
-                            <div id="reb" name="reb"className="reb">REB: {this.props.reb}</div>
-                            <div id="stl" name="stl"className="stl">STL: {this.props.stl}</div>
-                            <div id="fg" name="fg"className="fg">FG%: {this.props.fg}</div>
-                        </div>
-                    </div>
+        return (
+            <div className="career-card">
+                <div className="averages-row">
+                    <h2>CAREER AVERAGES</h2>
+                    <div id="ppg" name="ppg" className="avg-stat">PPG: {this.props.ppg}</div>
+                    <div id="ast" name="ast" className="avg-stat">AST: {this.props.ast}</div>
+                    <div id="reb" name="reb" className="avg-stat">REB: {this.props.reb}</div>
+                    <div id="stl" name="stl" className="avg-stat">STL: {this.props.stl}</div>
+                    <div id="fg" name="fg" className="avg-stat">FG%: {this.props.fg}</div>
                 </div>
             </div>
         )
     }
 }
 
-const mapStateToProps = state => {
-    
-};
-
-export default requiresLogin()(connect(mapStateToProps)(CareerAvg));
+export default requiresLogin()(connect()(CareerAvg));

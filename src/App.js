@@ -1,14 +1,14 @@
 import React from 'react';
-import {withRouter} from 'react-router';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
+import NavBar from './components/nav-bar';
 import LandingPage from './components/landing-page';
 import LoginForm from './components/login-form';
-import RegisterForm from './components/register-form';
 import PlayerProfile from './components/player-profile';
-import StatSheet from './components/stat-sheet';
+import StatsCard from './components/stats-card';
 import {refreshAuthToken} from './actions/auth';
 import {connect} from 'react-redux';
+import { RegistrationPage } from './components/registration-page';
 
 export class App extends React.Component {
   componentDidUpdate(prevProps) {
@@ -40,18 +40,20 @@ export class App extends React.Component {
 
   render() {
     return (
-
-      <Router>
         <div className="app">
           <main>
+            <Switch>
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/login-form" component={LoginForm} />
-            <Route exact path="/register-form" component={RegisterForm} />
+            <Route exact path="/registration-page" component={RegistrationPage} />
             <Route exact path="/player-profile" component={PlayerProfile} />
-            <Route exact path="/stat-sheet" component={StatSheet} />
+            <Route exact path="/stats-card" component={StatsCard} />
+            <Route exact path="/stats-card/:statsId" component={StatsCard} />
+
+            </Switch>
           </main>
         </div>
-      </Router>
+
     );
   }
 }
@@ -61,4 +63,4 @@ const mapStateToProps = state => ({
   loggedIn: state.auth.currentUser !== null
 });
 
-export default withRouter(connect(mapStateToProps)(App));
+export default connect(mapStateToProps)(App);

@@ -1,26 +1,37 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
-import {fetchProtectedData} from '../actions/protected-data';
+import {Link} from 'react-router-dom';
+import { fetchProtectedData } from '../actions/protected-data';
+import './history.css';
+import { getAllStatSheet } from '../actions/stat-sheet';
 
-export class History extends React.Component { 
 
+export class History extends React.Component {
     componentDidMount() {
-        this.props.dispatch(fetchProtectedData());
+        this.props.dispatch(getAllStatSheet(this.props.stats));
     }
 
+    //componentDidUpdate() {
+      //  this.props.dispatch(getAllStatSheet(this.props.stats));
+   // }
+
     render() {
-    const games = this.props.games.map((game, index) => (
-            <li key={index}>
-                {game}
-            </li>
-        ))
-        return(
-            <div className="history">
-                <h1>Swish Stats Game History</h1>
+        let statSheet;
+        console.log(this.props.stats);
+        if (this.props.stats) {
+            statSheet = this.props.stats.map((statSheet, index) => (
+                <li key={index}>
+                    <Link to={'/stats-card/' + statSheet.statsId}>{statSheet.date} VS {statSheet.vs} </Link>
+                </li>
+            ))
+        }
+        return (
+            <div className="history-card">
+                <h2>GAME HISTORY</h2>
                 <div>
-                    <ul id="gamesList">
-                        {games}
+                    <ul id="statsHistory">
+                        {statSheet}
                     </ul>
                 </div>
             </div>
@@ -28,9 +39,13 @@ export class History extends React.Component {
     }
 }
 
+History.defaultProps = {
+    stats: [],
+};
+
 
 const mapStateToProps = state => ({
-    games: state.games
+    stats: state.stats.stats || []
 });
 
 export default requiresLogin()(connect(mapStateToProps)(History));

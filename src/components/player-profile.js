@@ -1,5 +1,4 @@
 import React from 'react';
-
 import NavBar from './nav-bar';
 import PlayerCard from './player-card';
 import CareerAvg from './career-avg';

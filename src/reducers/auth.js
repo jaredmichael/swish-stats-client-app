@@ -15,10 +15,12 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
     if (action.type === SET_AUTH_TOKEN) {
+        localStorage.authToken = action.authToken;
         return Object.assign({}, state, {
             authToken: action.authToken
         });
     } else if (action.type === CLEAR_AUTH) {
+        localStorage.authToken = null;
         return Object.assign({}, state, {
             authToken: null,
             currentUser: null
@@ -40,4 +42,4 @@ export default function reducer(state = initialState, action) {
         });
     }
     return state;
-}
+};

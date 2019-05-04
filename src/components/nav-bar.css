@@ -1,0 +1,84 @@
+h1.header {
+    font-size: 80px;
+    font-weight: 100;
+    color: darkslateblue;
+    font-family: 'Black Ops One', cursive;
+    text-align: center;
+    width: 100%;
+    margin-top: 100px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: white;
+    border-top: 4px solid darkslateblue;
+    border-bottom: 4px solid darkslateblue;
+}
+
+a.header:link {
+    text-decoration: none;
+}
+
+a.header:visited {
+    color: darkslateblue;
+}
+
+link:hover {
+    cursor: pointer;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 100;
+    color: darkslateblue;
+    font-family: 'Black Ops One', cursive;   
+}
+
+a.nav:link {
+    text-decoration: none;
+}
+
+a.nav:visited {
+    color: white;
+}
+
+ul.top-nav li { 
+    float: left;
+    padding-left: 6px;
+}
+
+li.nav-bar {
+    font-size: 14px;
+    color: white;
+    display: inline;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+a.nav {
+    margin-right: 20px;
+}
+
+ul.top-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: darkslateblue;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+@media screen and (max-width: 640px) {
+    h1 {
+        font-size: 70px;
+        margin-top: 180px;
+    }
+
+    p.firstName {
+        margin-top: 0px;
+    }
+    
+    li.nav-bar h3 {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+}

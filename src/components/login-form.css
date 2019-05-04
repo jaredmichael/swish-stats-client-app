@@ -1,0 +1,47 @@
+.login-card {
+    background-color: white;
+    border: 4px solid darkslateblue;
+    max-width: 500px;
+    margin-right: auto;
+    margin-left: auto;
+    height: auto;
+    padding-bottom: 40px;
+
+}
+
+.login-card h2 {
+    font-size: 34px;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.login-form, form button {
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.login-form label {
+    font-size: 20px;
+    color: darkslateblue;
+    margin-top: 20px;
+}
+
+input#username, input#password {
+    width: 100%;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.login-form button {
+    width: 100%;
+    font-size: 20px;
+    height: 40px;
+    margin-top: 10px;
+    background-color: darkslateblue;
+    color: white;
+
+}

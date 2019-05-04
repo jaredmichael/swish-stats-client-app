@@ -1,7 +1,8 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
-import {fetchProtectedData} from '../actions/protected-data';
+import { fetchProtectedData } from '../actions/protected-data';
+import './player-card.css';
 
 export class PlayerCard extends React.Component {
     componentDidMount() {
@@ -9,33 +10,46 @@ export class PlayerCard extends React.Component {
     }
 
     render() {
-        return(            
-            <div className="player-row">
-                <div className="col-4">                    
-                    <div className="player-card">                        
-                        <div className="player-row">
-                            <p className="jersey-number">{this.props.jerseyNum}</p>
-                            <p className="first-name">{this.props.firstName}</p>
-                            <p className="last-name">{this.props.lastName}</p>
-                        </div>
-                        <div className="info-row">
-                            <p className="age">{this.props.age}</p>
-                            <p className="height">{this.props.height}</p>
-                            <p className="position">{this.props.position}</p>
-                        </div>
+        return (
+            <div className="player-card">
+                <h2>PLAYER CARD</h2>
+                <div className="player-row">
+                    <div className="col-6">
+                        <p className="hashtag">#</p>
+                        <p className="jersey-number">{this.props.user.jerseyNum}</p>
+                    </div>
+                    <div className="col-6">
+                        <p className="first-name">{this.props.user.firstName}</p>
+                        <p className="last-name">{this.props.user.lastName}</p>
+                    </div>
+                </div>
+
+                <div className="player-row">
+                    <div className="col-4">
+                        <h3>AGE</h3>
+                        <p className="age">{this.props.user.age}</p>
+                    </div>
+                    <div className="col-4">
+                        <h3>HEIGHT</h3>
+                        <p className="height">{this.props.user.height}</p>
+                    </div>
+                    <div className="col-4">
+                        <h3>POSITION</h3>
+                        <p className="position">{this.props.user.position}</p>
                     </div>
                 </div>
             </div>
-        )
+        );
     };
 }
 
 const mapStateToProps = state => {
-    const {currentUser} = state.auth;
+    const { currentUser } = state.auth;
     return {
         username: state.auth.currentUser.username,
         name: `${currentUser.firstName} ${currentUser.lastName}`,
-        protectedData: state.protectedData.data
+        protectedData: state.protectedData.data,
+        user: currentUser
     };
 };
 
