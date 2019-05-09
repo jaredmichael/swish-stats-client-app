@@ -99,29 +99,19 @@ input.rw-select-list-input {
     padding-left: 1.04166666%;
     padding-right: 1.04166666%;
   }
-  
-  
-  
-  
-  /* Non-mobile, grid */
-  @media only screen and (min-width: 640px) {
-    /* 3 columns, 3/12 in % */
-    .col-3 {
-      width: 25%;
-    }
-  
-    /* 4 columns */
-    .col-4 {
-      width: 33.33%;
-    }
-  
-    /* 6 columns */
-    .col-6 {
-      width: 50%;
-    }
-  
-    /* 12 columns */
-    .col-12 {
-      width: 100%;
-    }
+
+  @media only screen and (max-width: 640px) {
+      .register-card, .register-form {
+        width: 100%;
+        padding-left: 6px;
+        padding-right: 6px;
+      }
+
+      .register-card h2 {
+        font-size: 28px; 
+      }
+
+      div#rw_7_widget {
+        margin-top: 10px;
+      }
   }

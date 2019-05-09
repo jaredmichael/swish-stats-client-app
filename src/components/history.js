@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
 import {Link} from 'react-router-dom';
-import { fetchProtectedData } from '../actions/protected-data';
 import './history.css';
 import { getAllStatSheet } from '../actions/stat-sheet';
 
@@ -12,13 +11,8 @@ export class History extends React.Component {
         this.props.dispatch(getAllStatSheet(this.props.stats));
     }
 
-    //componentDidUpdate() {
-      //  this.props.dispatch(getAllStatSheet(this.props.stats));
-   // }
-
     render() {
         let statSheet;
-        console.log(this.props.stats);
         if (this.props.stats) {
             statSheet = this.props.stats.map((statSheet, index) => (
                 <li key={index}>

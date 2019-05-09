@@ -68,9 +68,9 @@ ul.top-nav {
 }
 
 @media screen and (max-width: 640px) {
-    h1 {
-        font-size: 70px;
-        margin-top: 180px;
+    h1.header {
+        font-size: 42px;
+        margin-top: 68px;
     }
 
     p.firstName {
@@ -80,5 +80,9 @@ ul.top-nav {
     li.nav-bar h3 {
         margin-top: 0px;
         margin-bottom: 0px;
+    }
+
+    li.nav-bar {
+        font-size: 12px;
     }
 }

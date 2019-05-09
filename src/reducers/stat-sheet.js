@@ -28,7 +28,7 @@ export default (state = initialState, action) => {
 
     if (action.type === ADD_COUNT) {
         const statSheet = {...state.statSheet};
-        statSheet[action.key]=statSheet[action.key]+1
+        statSheet[action.key]=parseInt(statSheet[action.key])+1;
         return Object.assign({}, state, {
             statSheet
         });
@@ -36,7 +36,7 @@ export default (state = initialState, action) => {
 
     if (action.type === SUBTRACT_COUNT) {
         const statSheet = {...state.statSheet};
-        statSheet[action.key]=statSheet[action.key]-1
+        statSheet[action.key]=parseInt(statSheet[action.key])-1
         return Object.assign({}, state, {
             statSheet
         });

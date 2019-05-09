@@ -1,13 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
-import { fetchProtectedData } from '../actions/protected-data';
 import NavBar from './nav-bar';
 import PlayerCard from './player-card';
 import StatSheet from './stat-sheet';
-import History from './history';
 import { getStatSheetById } from '../actions/stat-sheet';
-import { setStatlist, setStats } from '../actions/actions';
+import { setStats } from '../actions/actions';
 
 export class StatsCard extends React.Component {
     componentDidMount() {

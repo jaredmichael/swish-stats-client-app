@@ -1,6 +1,6 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {Redirect, withRouter, Link} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Redirect, withRouter } from 'react-router-dom';
 import NavBar from './nav-bar.js';
 import './landing-page.css';
 
@@ -15,8 +15,8 @@ export function LandingPage(props) {
             <main role="main">
             <NavBar />
                 <div className="app-info">
-                    <p></p>
-                    <div className="row">
+                <h3 className="landing-page">THE ULTIMATE BASKETBALL STAT TRACKER</h3>            
+                    <div className="row" id="landing-page">
                         
                         <div className="col-3">
                             <div className="info-card">
@@ -56,7 +56,7 @@ export function LandingPage(props) {
                         </div>
                         
                     </div>
-                    <h3 className="landing-page">LET SWISH STATS ASSIST YOUR ATHLETIC JOURNEY</h3>            
+                    <h3 className="landing-page">REGISTER ABOVE AND LET SWISH STATS ASSIST YOUR ATHLETIC JOURNEY</h3>            
 
                 </div>
 

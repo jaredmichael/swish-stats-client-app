@@ -16,13 +16,12 @@ const ageMinMax = length({min: 1, max: 99});
 export class RegisterForm extends React.Component {
     
     onSubmit(values) {
-        console.log(values);
         values.jerseyNum = parseInt(values.jerseyNum);
         values.age = parseInt(values.age);
         const {username, password, firstName, lastName, jerseyNum, age, height, position} = values;
         const user = {username, password, firstName, lastName, jerseyNum, age, height, position};
         return this.props.dispatch(registerUser(user))
-            .then(() => this.props.dispatch(login(username, password)));
+            .then(() => this.props.dispatch(login(username, password)))
     }
     
 
@@ -140,8 +139,9 @@ export class RegisterForm extends React.Component {
 export default reduxForm({
     form: 'register',
     onSubmitFail: (errors, dispatch) => {
-        console.log(errors)
+        if (errors) {
         dispatch(focus('register', Object.keys(errors)[0]))
+        }
     }
 
 })(RegisterForm);

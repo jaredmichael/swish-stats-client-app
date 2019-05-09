@@ -75,7 +75,6 @@ export class StatSheet extends React.Component {
             })
             .then(setStats({}))
         }
-        
     }
 
     render() {
@@ -103,14 +102,14 @@ export class StatSheet extends React.Component {
 
         let totReb = 0;
         if (this.props.statSheet.oReb >= 1 || this.props.statSheet.dReb >= 1) {
-            totReb = this.props.statSheet.oReb + this.props.statSheet.dReb
+            totReb = parseInt(this.props.statSheet.oReb) + parseInt(this.props.statSheet.dReb)
         } else {
             totReb = 0;
         }
 
         let points = 0;
         if (this.props.statSheet.twoMade >= 1 || this.props.statSheet.threeMade >= 1 || this.props.statSheet.ftMade >= 1) {
-            points = (this.props.statSheet.twoMade * 2) + (this.props.statSheet.threeMade * 3) + this.props.statSheet.ftMade
+            points = (parseInt(this.props.statSheet.twoMade) * 2) + (parseInt(this.props.statSheet.threeMade) * 3) + parseInt(this.props.statSheet.ftMade)
         } else {
             points = 0;
         }
@@ -154,10 +153,10 @@ export class StatSheet extends React.Component {
 
 
                     <div className="row" id="twoPts">
-                        <div className="col-3">
+                        <div className="col-3" id="stat-sheet">
                             <h4 className="twoPt">2PT</h4>
                         </div>
-                        <div className="col-3">
+                        <div className="col-3" id="stat-sheet">
                             <h3>SHOT</h3>
                             <p className="count">{this.props.statSheet.twoShot}</p>
 
@@ -178,7 +177,7 @@ export class StatSheet extends React.Component {
                             >-
                                 </button>
                         </div>
-                        <div className="col-3">
+                        <div className="col-3" id="stat-sheet">
                             <h3>MADE</h3>
                             <p className="count">{this.props.statSheet.twoMade}</p>
 
@@ -199,18 +198,18 @@ export class StatSheet extends React.Component {
                             >-
                                 </button>
                         </div>
-                        <div className="col-3">
+                        <div className="col-3" id="stat-sheet">
                             <h3 className="twoPer">2PT%</h3>
                             <p className="count" id="twoPer">{twoPer}%</p>
                         </div>
                     </div>
 
                     <div className="row" id="threePts">
-                        <div className="col-3">
+                        <div className="col-3" id="stat-sheet">
                             <h4 className="threePt">3PT</h4>
                         </div>
 
-                        <div className="col-3">
+                        <div className="col-3" id="stat-sheet">
                             <p className="count">{this.props.statSheet.threeShot}</p>
                             <button
                                 type="button"
@@ -228,7 +227,7 @@ export class StatSheet extends React.Component {
                             >-</button>
                         </div>
 
-                        <div className="col-3">
+                        <div className="col-3" id="stat-sheet">
                             <p className="count">{this.props.statSheet.threeMade}</p>
 
                             <button
@@ -247,18 +246,18 @@ export class StatSheet extends React.Component {
                             >-</button>
                         </div>
 
-                        <div className="col-3">
+                        <div className="col-3" id="stat-sheet">
                             <h3 className="threePer">3PT%</h3>
                             <p className="count" id="threePer">{threePer}%</p>
                         </div>
                     </div>
 
                     <div className="row" id="fts">
-                        <div className="col-3">
+                        <div className="col-3" id="stat-sheet">
                             <h4 className="ft">FT</h4>
                         </div>
 
-                        <div className="col-3">
+                        <div className="col-3" id="stat-sheet">
                             <p className="count">{this.props.statSheet.ftShot}</p>
                             <button
                                 type="button"
@@ -276,7 +275,7 @@ export class StatSheet extends React.Component {
                             >-</button>
                         </div>
 
-                        <div className="col-3">
+                        <div className="col-3" id="stat-sheet">
                             <p className="count">{this.props.statSheet.ftMade}</p>
 
                             <button
@@ -295,18 +294,18 @@ export class StatSheet extends React.Component {
                             >-</button>
                         </div>
 
-                        <div className="col-3">
+                        <div className="col-3" id="stat-sheet">
                             <h3 className="ftPer">FT%</h3>
                             <p className="count" id="ftPer">{ftPer}%</p>
                         </div>
                     </div>
 
                     <div className="row" id="rebs">
-                        <div className="col-3">
+                        <div className="col-3" id="stat-sheet">
                             <h4 className="reb">REB</h4>
                         </div>
 
-                        <div className="col-3">
+                        <div className="col-3" id="stat-sheet">
                             <h3>OFF</h3>
                             <p className="count">{this.props.statSheet.oReb}</p>
 
@@ -328,7 +327,7 @@ export class StatSheet extends React.Component {
                                 </button>
                         </div>
 
-                        <div className="col-3">
+                        <div className="col-3" id="stat-sheet">
                             <h3>DEF</h3>
                             <p className="count">{this.props.statSheet.dReb}</p>
                             <button
@@ -347,7 +346,7 @@ export class StatSheet extends React.Component {
                             >-</button>
                         </div>
 
-                        <div className="col-3">
+                        <div className="col-3" id="stat-sheet">
                             <h3 className="totReb">TOT REB</h3>
                             <p className="count" id="totRebs">{totReb}</p>
                         </div>

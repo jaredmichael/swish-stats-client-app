@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import NavBar from './components/nav-bar';
 import LandingPage from './components/landing-page';
 import LoginForm from './components/login-form';
 import PlayerProfile from './components/player-profile';

@@ -27,7 +27,6 @@ export const createStatSheet = stats => dispatch => {
 };
 
 export const updateStatSheet = stats => dispatch => {
-    console.log(JSON.stringify(stats));
     return fetch(`${API_BASE_URL}/stats/${stats.statsId}`, {
         method: 'PUT',
         headers: {
@@ -76,7 +75,6 @@ export const getStatSheetById = statsId => dispatch => {
 };
 
 export const getAllStatSheet = stats => dispatch => {
-    console.log(JSON.stringify(stats));
     return fetch(`${API_BASE_URL}/stats`, {
         method: 'GET',
         headers: {
@@ -102,7 +100,6 @@ export const getAllStatSheet = stats => dispatch => {
 };
 
 export const deleteStatSheet = statsId => dispatch => {
-    console.log(statsId);
     return fetch(`${API_BASE_URL}/stats/${statsId}`, {
         method: 'DELETE',
         headers: {

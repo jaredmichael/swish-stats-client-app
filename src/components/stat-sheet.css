@@ -146,12 +146,16 @@ div#statline.row, div#rebs.row, div#threePts.row, div#fts.row {
 
 p#points {
   transform: scale(3,3.5); 
-  margin-top: 24px
+  margin-top: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20px;
 }
 
 div#save-delete.row {
   margin-top: 40px;
   margin-bottom: 0px;
+  width: 65%;
 }
 
 div#statline.row {
@@ -219,13 +223,13 @@ button#save-delete:hover {
 
     /* 3 columns, 3/12 in % */
 
-    .col-3 {
+    #stat-sheet.col-3 {
       width: 25%;
     }
   
     /* 4 columns */
     .col-4 {
-      width: 33.33%;
+      width: 30%;
     }
   
     /* 6 columns */
@@ -243,12 +247,12 @@ button#save-delete:hover {
     }
 
     .stat-card {
-      width: 400px;
+      width: 100%;
     }
 
     h4.twoPt, h4.threePt, h4.ft, h4.reb {
       display: inline-block;
-      transform: scale(.8, 2.8);
+      transform: scale(.6, 2.8);
       margin-bottom: 0px;
     }
 
@@ -266,8 +270,41 @@ button#save-delete:hover {
       transform: scale(1.5, 3)
     }
 
+    div#save-delete.row {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    button#save-delete {
+      width: 120px;
+    }
+
     div#statline.row {
       margin-left: 0px;
+      width: 90%;
+    }
+
+    div#vs, div#date {
+      margin-left: 10px;
+    }
+
+    input#vs {
+      width: 80%;
+    }
+
+    h3.totReb {
+      margin-top: 0px;
+    }
+
+    .row {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+
+    div#date-vs.row, div#statline.row, div#rebs.row, div#twoPts.row, div#threePts.row, div#fts.row {
+      margin-top: 0px;
+      margin-bottom: 0px;
     }
   }
 

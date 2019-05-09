@@ -14,26 +14,26 @@ export class PlayerCard extends React.Component {
             <div className="player-card">
                 <h2>PLAYER CARD</h2>
                 <div className="player-row">
-                    <div className="col-6">
+                    <div id="player" className="col-6">
                         <p className="hashtag">#</p>
                         <p className="jersey-number">{this.props.user.jerseyNum}</p>
                     </div>
-                    <div className="col-6">
+                    <div id="player" className="col-6">
                         <p className="first-name">{this.props.user.firstName}</p>
                         <p className="last-name">{this.props.user.lastName}</p>
                     </div>
                 </div>
 
                 <div className="player-row">
-                    <div className="col-4">
+                    <div id="player" className="col-4">
                         <h3>AGE</h3>
                         <p className="age">{this.props.user.age}</p>
                     </div>
-                    <div className="col-4">
+                    <div id="player" className="col-4">
                         <h3>HEIGHT</h3>
                         <p className="height">{this.props.user.height}</p>
                     </div>
-                    <div className="col-4">
+                    <div id="player" className="col-4">
                         <h3>POSITION</h3>
                         <p className="position">{this.props.user.position}</p>
                     </div>
