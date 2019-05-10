@@ -1,68 +1,63 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- # swish-stats-server-app
 
-## Available Scripts
+Initial wireframes:
 
-In the project directory, you can run:
+https://wireframe.cc/x0a8I9
 
-### `npm start`
+https://wireframe.cc/6oVXTU -->
+# Swish Stats
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Register and create a player profile, create stat sheets to track game stats in real time.  Save, update and delete stat sheets from game history.  Track your stats, find your efficiencies and figure out where to improve.   
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Motivation
 
-### `npm test`
+We believe that life is about becoming our best selves by vying to improve.  We hope to inspire athletes to be real with themselves, accept where they stand and decide to improve with Swish Stats.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Screenshots
 
-### `npm run build`
+Landing Page:
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![landing page](https://github.com/jaredmichael/swish-stats-server-app/blob/master/docs/landing-page.PNG)
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Player Profile:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![player profile](https://github.com/jaredmichael/swish-stats-server-app/blob/master/docs/profile-page.PNG)
 
-### `npm run eject`
+Statsheet:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![statsheet](https://github.com/jaredmichael/swish-stats-server-app/blob/master/docs/statsheet-page.PNG)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Game History:
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![game history](https://github.com/jaredmichael/swish-stats-server-app/blob/master/docs/game-history.PNG)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Built With
 
-## Learn More
+* HTML
+* CSS
+* JavaScript
+* jQuery
+* Express
+* Node.js
+* React
+* Redux
+* Mocha
+* Chai
+* Chai-http
+* Mongo
+* Mongoose
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Demo
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+[Live Demo](https://swish-stats-server-app.herokuapp.com/)
 
-### Analyzing the Bundle Size
+Username: demoUSER
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Password: $wi$hStatS
 
-### Making a Progressive Web App
+## Author
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+**Jared Juan**
