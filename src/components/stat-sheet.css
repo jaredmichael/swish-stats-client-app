@@ -147,8 +147,6 @@ div#statline.row, div#rebs.row, div#threePts.row, div#fts.row {
 p#points {
   transform: scale(3,3.5); 
   margin-top: 24px;
-  margin-left: auto;
-  margin-right: auto;
   width: 20px;
 }
 
