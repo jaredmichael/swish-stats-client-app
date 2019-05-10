@@ -17,7 +17,7 @@ export class App extends React.Component {
       this.stopPeriodicRefresh();
     }
   }
-
+   
   componentWillUnmount() {
     this.stopPeriodicRefresh();
   }
