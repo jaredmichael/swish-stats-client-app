@@ -13,12 +13,13 @@ h1.header {
     border-bottom: 4px solid darkslateblue;
 }
 
-a.header {
+a.header:visited {
     color: darkslateblue;
 }
 
 a.header:link {
     text-decoration: none;
+    color: darkslateblue;
 }
 
 h2 {
