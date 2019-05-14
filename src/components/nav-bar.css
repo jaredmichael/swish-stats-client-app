@@ -37,10 +37,6 @@ a.nav {
     color: white;
 }
 
-a.nav:visited {
-    color: moccasin;
-}
-
 ul.top-nav li { 
     float: left;
     padding-left: 6px;
