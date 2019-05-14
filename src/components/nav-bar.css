@@ -13,11 +13,11 @@ h1.header {
     border-bottom: 4px solid darkslateblue;
 }
 
-a.header:hover {
+a.head:hover, a.nav:hover {
     color: rgb(243, 160, 52);
 }
 
-a.header {
+a.head {
     text-decoration: none;
     color: darkslateblue;
 }

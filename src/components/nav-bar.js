@@ -56,7 +56,7 @@ export class NavBar extends React.Component {
             
             <div className="nav-bar">
                 <header>
-                    <h1 className="header"><Link to="/" className="header">SWISH STATS</Link></h1>
+                    <h1 className="header"><Link to="/" className="head">SWISH STATS</Link></h1>
                     <ul className="top-nav">
                         <li className="nav-bar">{login}</li>
                         <li className="nav-bar">{register}</li>
