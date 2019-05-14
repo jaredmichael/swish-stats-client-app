@@ -17,10 +17,6 @@ a.header:link {
     text-decoration: none;
 }
 
-a.header:visited {
-    color: darkslateblue;
-}
-
 link:hover {
     cursor: pointer;
 }
