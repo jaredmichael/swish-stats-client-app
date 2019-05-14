@@ -13,11 +13,11 @@ h1.header {
     border-bottom: 4px solid darkslateblue;
 }
 
-a.header:visited {
-    color: darkslateblue;
+a.header:hover {
+    color: rgb(243, 160, 52);
 }
 
-a.header:link {
+a.header {
     text-decoration: none;
     color: darkslateblue;
 }
@@ -33,8 +33,12 @@ a.nav:link {
     text-decoration: none;
 }
 
-a.nav:visited {
+a.nav {
     color: white;
+}
+
+a.nav:visited {
+    color: moccasin;
 }
 
 ul.top-nav li { 
