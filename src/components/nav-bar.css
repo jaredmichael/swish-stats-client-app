@@ -13,12 +13,12 @@ h1.header {
     border-bottom: 4px solid darkslateblue;
 }
 
-a.header:link {
-    text-decoration: none;
+a.header {
+    color: darkslateblue;
 }
 
-link:hover {
-    cursor: pointer;
+a.header:link {
+    text-decoration: none;
 }
 
 h2 {
