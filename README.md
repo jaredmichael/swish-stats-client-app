@@ -51,7 +51,7 @@ Game History:
 
 ## Demo
 
-[Live Demo](https://swish-stats-server-app.herokuapp.com/)
+[Live Demo](https://swish-stats-client-app.herokuapp.com/)
 
 Username: demoUSER
 
