@@ -14,7 +14,6 @@ const matchesPassword = matches('password');
 const ageMinMax = length({min: 1, max: 99});
 
 export class RegisterForm extends React.Component {
-    
     onSubmit(values) {
         values.jerseyNum = parseInt(values.jerseyNum);
         values.age = parseInt(values.age);
@@ -26,6 +25,10 @@ export class RegisterForm extends React.Component {
     
 
     render() {
+        if (props.loggedIn) {
+            return (<Redirect to="/player-profile" />);
+        }
+
         const renderSelectList = ({ input, data }) =>
             <SelectList {...input}
             onBlur={() => input.onBlur()}
@@ -136,6 +139,10 @@ export class RegisterForm extends React.Component {
     }
 }  
 
+const mapStateToProps = state => ({
+    loggedIn: state.auth.currentUser !== null
+});
+
 export default reduxForm({
     form: 'register',
     onSubmitFail: (errors, dispatch) => {
@@ -144,4 +151,7 @@ export default reduxForm({
         }
     }
 
-})(RegisterForm);
+})(connect(mapStateToProps)(RegisterForm));
+
+
+
