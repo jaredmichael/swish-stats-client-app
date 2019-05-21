@@ -3,24 +3,25 @@ import { connect } from 'react-redux';
 import { Redirect, withRouter } from 'react-router-dom';
 import NavBar from './nav-bar.js';
 import './landing-page.css';
+import { login } from '../actions/auth.js';
 
 export function LandingPage(props) {
     //if logged in redirect to player-profile
     if (props.loggedIn) {
         return (<Redirect to="/player-profile" />);
     }
-    
-    return(
+
+    return (
         <div className="landing-page">
             <main role="main">
-            <NavBar />
+                <NavBar />
                 <div className="app-info">
-                <h3 className="landing-page">THE ULTIMATE BASKETBALL STAT TRACKER</h3>            
+                    <h3 className="landing-page">THE ULTIMATE BASKETBALL STAT TRACKER</h3>
                     <div className="row" id="landing-page">
-                        
+
                         <div className="col-3">
                             <div className="info-card">
-                            <i className="material-icons">account_box</i>
+                                <i className="material-icons">account_box</i>
 
                                 <div className="card-label">
                                     <p>CREATE PLAYER PROFILE</p>
@@ -28,7 +29,7 @@ export function LandingPage(props) {
                             </div>
                         </div>
 
-                        <div className="col-3"> 
+                        <div className="col-3">
                             <div className="info-card">
                                 <i className="material-icons">assignment</i>
                                 <div className="card-label">
@@ -36,7 +37,7 @@ export function LandingPage(props) {
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div className="col-3">
                             <div className="info-card">
                                 <i className="material-icons">assessment</i>
@@ -45,7 +46,7 @@ export function LandingPage(props) {
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div className="col-3">
                             <div className="info-card">
                                 <i className="material-icons">history</i>
@@ -54,10 +55,13 @@ export function LandingPage(props) {
                                 </div>
                             </div>
                         </div>
-                        
-                    </div>
-                    <h3 className="landing-page">REGISTER ABOVE AND LET SWISH STATS ASSIST YOUR ATHLETIC JOURNEY</h3>            
 
+                    </div>
+                    <h3 className="landing-page">REGISTER ABOVE AND LET SWISH STATS ASSIST YOUR ATHLETIC JOURNEY</h3>
+                    <div className="demo">
+                        <h3 className="landing-page" id="demo">TRY A LIVE DEMO</h3>
+                        <button className="demo" onClick={e => props.dispatch(login('demoUSER', '$wi$hStatS'))}>DEMO</button>
+                    </div>
                 </div>
 
             </main>

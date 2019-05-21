@@ -59,6 +59,10 @@ export class LoginForm extends React.Component {
                         </button>
                     </form>
                 </div>
+                <div className="demo">
+                        <h3 id="demo">TRY A LIVE DEMO</h3>
+                        <button className="demo" onClick={e => this.props.dispatch(login('demoUSER', '$wi$hStatS'))}>DEMO</button>
+                </div>
             </div>
         );
     }

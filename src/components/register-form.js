@@ -2,6 +2,8 @@ import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import {registerUser} from '../actions/users';
 import {login} from '../actions/auth';
+import {Redirect} from 'react-router-dom';
+import { connect } from 'react-redux';
 import Input from './input';
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
 import SelectList from 'react-widgets/lib/SelectList';
@@ -25,7 +27,7 @@ export class RegisterForm extends React.Component {
     
 
     render() {
-        if (props.loggedIn) {
+        if (this.props.loggedIn) {
             return (<Redirect to="/player-profile" />);
         }
 
